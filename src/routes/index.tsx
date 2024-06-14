@@ -16,27 +16,30 @@ import {
 } from "~/components/ui/select";
 
 export default function Home() {
-  const [value, setValue] = createSignal("");
+  const [value, setValue] = createSignal([]);
   const [expense, setExpense] = createSignal("");
 
-  function handleSubmit(e: any) {
-    e.preventDefault();
-    setExpense("Form has been submitted with with Input: " + value);
-  }
-  function handleChange(e: any) {
-    setValue(e.target.value);
-    setExpense("");
-  }
+  // function handleSubmit(e: any) {
+  //   e.preventDefault();
+  //   setExpense("Form has been submitted with with Input: " + value);
+  // }
+  // function handleChange(e: any) {
+  //   setValue(e.target.value);
+  //   setExpense("");
+  // }
+
+  function handleSubmit() {}
+
   return (
     <main class="text-center mx-auto text-gray-700 p-4 flex flex-wrap flex-col items-center justify-center">
       <h1 class="text-6xl text-sky-700 font-thin uppercase my-16">
         Finance Tracking
       </h1>
-      <form onSubmit={handleSubmit}>
+      <form>
         <div class="flex flex-col gap-6 w-full">
           <div class="flex flex-col gap-2">
             <p class="text-sky-700 text-xl text-start">Description:</p>
-            <Input onChange={handleChange} value={value()} required />
+            <Input value={value()} required />
           </div>
           <div class="flex flex-col gap-2">
             <p class="text-start text-sky-700 text-xl ">Amount:</p>
@@ -80,9 +83,7 @@ export default function Home() {
           </Button>
         </div>
       </form>
-      <div>
-        <h4>{value()}</h4>
-      </div>
+      <div>{/* <h4>{value()}</h4> */}</div>
     </main>
   );
 }
